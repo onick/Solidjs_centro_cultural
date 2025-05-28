@@ -8,7 +8,6 @@
     "build": "vite build",
     "serve": "vite preview --port 3000",
     "test": "vitest",
-    "vercel-build": "npm run build",
     "phase5:start": "./start-phase5.sh",
     "phase5:stop": "docker-compose down",
     "phase5:restart": "docker-compose restart",

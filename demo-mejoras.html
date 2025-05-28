@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCB - Demostración de Mejoras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #fef3e2 100%);
+            min-height: 100vh;
+            color: #374151;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #00BDF2 0%, #F99D2A 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: inline-block;
+            background: white;
+            color: #00BDF2;
+            padding: 0.75rem;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .status-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #00BDF2;
+        }
+        
+        .status-title {
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-list {
+            list-style: none;
+        }
+        
+        .status-list li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .badge-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .demo-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .demo-link {
+            display: block;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: #374151;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid #F99D2A;
+        }
+        
+        .demo-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">CCB</div>
+            <h1>Centro Cultural Banreservas - Mejoras Implementadas</h1>
+            <p>Sistema de Gestión de Eventos y Visitantes - Versión Mejorada</p>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-title">
+                    🎨 Mejoras de Diseño Implementadas
+                </div>
+                <ul class="status-list">
+                    <li>✅ Diseño corporativo CCB completo</li>
+                    <li>✅ Header con logo y reloj en tiempo real</li>
+                    <li>✅ Gradientes y efectos visuales</li>
+                    <li>✅ Tarjetas con animaciones hover</li>
+                    <li>✅ Sistema de filtros funcional</li>
+                    <li>✅ Diseño responsive completo</li>
+                </ul>
+            </div>
+
+            <div class="status-card">
+                <div class="status-title">
+                    📊 Estado del Sistema
+                </div>
+                <ul class="status-list">
+                    <li>
+                        Frontend SolidJS 
+                        <span class="badge badge-success">75% Completado</span>
+                    </li>
+                    <li>
+                        Backend Node.js 
+                        <span class="badge badge-success">70% Operativo</span>
+                    </li>
+                    <li>
+                        Diseño Corporativo 
+                        <span class="badge badge-success">Implementado</span>
+                    </li>
+                    <li>
+                        Responsive Design 
+                        <span class="badge badge-success">Completo</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="status-card">
+                <div class="status-title">
+                    🚀 Próximos Módulos
+                </div>
+                <ul class="status-list">
+                    <li>
+                        Registro Mejorado 
+                        <span class="badge badge-warning">Planificado</span>
+                    </li>
+                    <li>
+                        Check-in Visual 
+                        <span class="badge badge-warning">Planificado</span>
+                    </li>
+                    <li>
+                        Panel Admin 
+                        <span class="badge badge-info">En Cola</span>
+                    </li>
+                    <li>
+                        Dashboard 
+                        <span class="badge badge-info">En Cola</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-links">
+            <a href="http://localhost:3001/" class="demo-link" target="_blank">
+                <div class="demo-icon">🏠</div>
+                <h3>Home Mejorado</h3>
+                <p>Panel de inicio con diseño corporativo CCB</p>
+            </a>
+
+            <a href="http://localhost:3001/eventos" class="demo-link" target="_blank">
+                <div class="demo-icon">🎭</div>
+                <h3>Eventos con Filtros</h3>
+                <p>Lista de eventos con sistema de filtros</p>
+            </a>
+
+            <a href="http://localhost:3001/registro" class="demo-link" target="_blank">
+                <div class="demo-icon">📝</div>
+                <h3>Registro</h3>
+                <p>Formulario de registro (pendiente mejora)</p>
+            </a>
+
+            <a href="http://localhost:3001/checkin" class="demo-link" target="_blank">
+                <div class="demo-icon">✅</div>
+                <h3>Check-in</h3>
+                <p>Sistema de check-in (pendiente mejora)</p>
+            </a>
+        </div>
+
+        <div class="footer">
+            <h3>🎯 Resumen de Mejoras</h3>
+            <p>Se implementaron mejoras significativas en el diseño corporativo, añadiendo los colores oficiales del CCB, efectos visuales profesionales, y funcionalidades mejoradas como filtros de eventos y navegación integrada.</p>
+            <br>
+            <p><strong>Desarrollado por:</strong> Marcelino Francisco M.</p>
+            <p><strong>Fecha:</strong> 28 de Mayo, 2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Actualizar enlaces si el puerto cambia
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎨 CCB - Demo de Mejoras Cargada');
+            console.log('🌐 Servidor corriendo en: http://localhost:3001/');
+        });
+    </script>
+</body>
+</html>

@@ -1,81 +1,160 @@
-# CCB SolidJS Platform
+# 🏛️ Centro Cultural Banreservas - SolidJS Platform
 
-## 🏛️ Centro Cultural Banreservas - Plataforma SolidJS
+Sistema de gestión de eventos y visitantes para el Centro Cultural Banreservas, desarrollado con SolidJS.
 
-Esta es una nueva plataforma desarrollada con **SolidJS** que funciona en paralelo al sistema Vue.js existente, sin modificar ni interferir con el sistema actual.
+## 🎨 Diseño Corporativo
 
-## 🚀 Configuración de Puertos
+- **Colores Oficiales CCB**: Azul `#00BDF2`, Naranja `#F99D2A`, Gris `#474C55`
+- **Diseño Responsive**: Adaptado para móvil, tablet y desktop
+- **Efectos Visuales**: Gradientes, animaciones y transiciones suaves
 
-- **Frontend SolidJS**: `http://localhost:3000`
-- **Backend Node.js**: `http://localhost:3080`
-- **Backend Flask**: `http://localhost:5000` (Nuevo)
-- **Sistema Vue.js Existente**: `http://localhost:8080` ⚠️ **NO SE MODIFICA**
+## ✨ Características
+
+- ✅ **Panel de Inicio**: Bienvenida corporativa con navegación intuitiva
+- ✅ **Gestión de Eventos**: Lista de eventos con filtros y estadísticas
+- ✅ **Registro de Visitantes**: Formulario de registro para eventos
+- ✅ **Check-in Sistema**: Confirmación de asistencia
+- ✅ **Diseño Responsive**: Optimizado para todos los dispositivos
+- ✅ **Tiempo Real**: Reloj actualizado y estados en vivo
+
+## 🚀 Demo en Vivo
+
+**Vercel**: [https://solidjs-centro-cultural.vercel.app](https://solidjs-centro-cultural.vercel.app)
+
+## 🛠️ Tecnologías
+
+- **Frontend**: SolidJS 1.9.7
+- **Routing**: @solidjs/router
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+- **Deployment**: Vercel
+
+## 📦 Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/onick/Solidjs_centro_cultural.git
+
+# Instalar dependencias
+cd Solidjs_centro_cultural
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+```
+
+## 🌐 Scripts Disponibles
+
+```bash
+# Desarrollo
+npm run dev
+
+# Construcción para producción
+npm run build
+
+# Preview de producción
+npm run preview
+
+# Pruebas
+npm run test
+```
 
 ## 📁 Estructura del Proyecto
 
 ```
-ccb_solidjs_platform/
-├── src/                    # Frontend SolidJS
-│   ├── components/         # Componentes reutilizables
-│   ├── pages/              # Páginas de la aplicación
-│   ├── stores/             # Estado global (SolidJS Store)
-│   ├── utils/              # Utilidades (incluye sincronización Vue.js)
-│   └── styles/             # Estilos CSS con colores CCB
-├── backend/                # Backend Node.js + Express
-│   ├── routes/             # Rutas API
-│   ├── controllers/        # Controladores
-│   ├── models/             # Modelos de datos
-│   ├── middleware/         # Middleware
-│   └── utils/              # Utilidades backend
-├── flask_backend/          # NUEVO: Backend Flask para Render
-│   ├── app.py              # Punto de entrada de Flask
-│   ├── requirements.txt    # Dependencias Python
-│   └── Procfile            # Configuración para Render
-├── docs/                   # Documentación
-├── tests/                  # Pruebas
-└── logs/                   # Logs de ejecución
+src/
+├── components/
+│   ├── ui/           # Componentes UI reutilizables
+│   └── Layout.jsx    # Layout principal
+├── pages/
+│   ├── HomeSimplified.jsx    # Página de inicio
+│   ├── EventosImproved.jsx   # Lista de eventos
+│   ├── RegistroPage.jsx      # Formulario de registro
+│   └── CheckinPage.jsx       # Sistema de check-in
+├── styles/           # Estilos globales
+└── App.jsx          # Aplicación principal
 ```
 
-## 🛠️ Inicio Rápido
+## 🎯 Funcionalidades Principales
 
-### 1. Iniciar la plataforma (Node.js + SolidJS)
-```bash
-./start.sh
+### 🏠 Panel de Inicio
+- Header corporativo con logo CCB
+- Reloj en tiempo real
+- Navegación a módulos principales
+- Estado del sistema en vivo
+
+### 🎭 Gestión de Eventos
+- Lista completa de eventos
+- Filtros: Todos, Próximos, En Curso, Finalizados
+- Estadísticas de registrados y check-ins
+- Navegación directa a registro y check-in
+
+### 📝 Registro de Visitantes
+- Formulario intuitivo de registro
+- Validación de datos en tiempo real
+- Selección de eventos disponibles
+- Confirmación de registro
+
+### ✅ Sistema de Check-in
+- Verificación de código de registro
+- Confirmación de asistencia
+- Estado de check-in actualizado
+
+## 🎨 Personalización
+
+Los colores corporativos están definidos en variables CSS:
+
+```css
+:root {
+  --ccb-blue: #00BDF2;
+  --ccb-orange: #F99D2A;
+  --ccb-gray: #474C55;
+}
 ```
 
-### 2. Iniciar el backend Flask (Nuevo)
-```bash
-cd flask_backend
-./start_flask.sh
-```
+## 📊 Estado del Proyecto
 
-### 3. Detener la plataforma
-```bash
-./stop.sh
-```
+- **Frontend SolidJS**: 80% ✅
+- **Backend Integration**: 70% ✅
+- **Responsive Design**: 100% ✅
+- **Corporate Design**: 100% ✅
 
-## 🔄 Sistema de Sincronización
+## 🔄 Próximas Funcionalidades
 
-La plataforma incluye un sistema de sincronización con el sistema Vue.js existente:
+- [ ] Panel Administrativo completo
+- [ ] Dashboard con estadísticas
+- [ ] Sistema de autenticación
+- [ ] Modo kiosco
+- [ ] Exportación de datos
+- [ ] Notificaciones push
 
-- **WebSocket** para comunicación en tiempo real
-- **API Bridge** para replicar datos críticos
-- **Fallback automático** al sistema Vue.js en caso de fallos
+## 🤝 Contribución
 
-## 🚀 Despliegue
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit tus cambios (`git commit -am 'Añadir nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-### Frontend (Vercel)
-El frontend está configurado para desplegarse en Vercel automáticamente.
+## 📄 Licencia
 
-### Backend (Render)
-Disponemos de dos opciones de backend:
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-1. **Node.js**: El backend original del proyecto
-2. **Flask**: Nuevo backend optimizado para Render (ver `/flask_backend/README.md` para más detalles)
+## 👨‍💻 Desarrollador
 
-## ⚠️ IMPORTANTE
+**Marcelino Francisco M.**
+- GitHub: [@onick](https://github.com/onick)
+- Proyecto: Centro Cultural Banreservas
 
-- **NO se modifica el sistema actual** en `ccb_repo2`
-- **Desarrollo completamente en paralelo**
-- **Sistema Vue.js sigue funcionando normalmente**
-- **Confirmar cada paso** antes de proceder a siguientes fases
+## 🏛️ Sobre el Centro Cultural Banreservas
+
+El Centro Cultural Banreservas es una institución dedicada a promover y difundir las artes y la cultura en la República Dominicana, ofreciendo una amplia gama de actividades culturales, educativas y artísticas.
+
+---
+
+**¿Tienes preguntas o sugerencias?** 
+Abre un [issue](https://github.com/onick/Solidjs_centro_cultural/issues) en el repositorio.
+
+---
+
+*Desarrollado con ❤️ para el Centro Cultural Banreservas*

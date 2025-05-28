@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCB - Verificación de Mejoras</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #fef3e2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #00BDF2 0%, #F99D2A 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: inline-block;
+            background: white;
+            color: #00BDF2;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .status {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #00BDF2;
+        }
+        
+        .status-card.warning {
+            border-left-color: #F99D2A;
+        }
+        
+        .big-link {
+            display: block;
+            background: linear-gradient(135deg, #00BDF2 0%, #F99D2A 100%);
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: transform 0.2s;
+        }
+        
+        .big-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .troubleshoot {
+            background: #fef3e2;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #F99D2A;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .status {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">CCB</div>
+            <h1>Centro Cultural Banreservas</h1>
+            <p>Verificación de Mejoras Implementadas</p>
+        </div>
+
+        <div class="status">
+            <div class="status-card">
+                <h3>✅ Estado Actual</h3>
+                <ul>
+                    <li>✅ Servidor SolidJS iniciado</li>
+                    <li>✅ Puerto: 3003 disponible</li>
+                    <li>✅ Archivos corregidos</li>
+                    <li>✅ Index.jsx actualizado</li>
+                </ul>
+            </div>
+            
+            <div class="status-card warning">
+                <h3>🎨 Mejoras Implementadas</h3>
+                <ul>
+                    <li>🎭 Diseño corporativo CCB</li>
+                    <li>⏰ Reloj en tiempo real</li>
+                    <li>📱 Diseño responsive</li>
+                    <li>🎯 Filtros de eventos</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="http://localhost:3003/" class="big-link" target="_blank">
+            🚀 VER DISEÑO MEJORADO - http://localhost:3003/
+        </a>
+
+        <div class="troubleshoot">
+            <h3>🔧 Si no ves las mejoras:</h3>
+            <ol>
+                <li><strong>Refresca la página</strong> (Cmd+R o Ctrl+R)</li>
+                <li><strong>Limpia la cache</strong> (Cmd+Shift+R o Ctrl+Shift+R)</li>
+                <li><strong>Abre en incógnito</strong> para ver sin cache</li>
+                <li><strong>Verifica la consola</strong> del navegador (F12)</li>
+            </ol>
+            
+            <p><strong>URL correcta:</strong> <code>http://localhost:3003/</code></p>
+            <p><strong>Páginas disponibles:</strong></p>
+            <ul>
+                <li>Home: <code>http://localhost:3003/</code></li>
+                <li>Eventos: <code>http://localhost:3003/eventos</code></li>
+                <li>Registro: <code>http://localhost:3003/registro</code></li>
+                <li>Check-in: <code>http://localhost:3003/checkin</code></li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; color: #666;">
+            <p>Desarrollado por Marcelino Francisco M.</p>
+            <p>28 de Mayo, 2025</p>
+        </div>
+    </div>
+
+    <script>
+        console.log('🎨 CCB - Verificación de mejoras cargada');
+        console.log('🌐 Servidor en: http://localhost:3003/');
+        
+        // Verificar si el servidor está respondiendo
+        fetch('http://localhost:3003/')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ Servidor CCB respondiendo correctamente');
+                } else {
+                    console.log('⚠️ Servidor responde pero hay errores');
+                }
+            })
+            .catch(error => {
+                console.log('❌ Error conectando al servidor:', error);
+            });
+    </script>
+</body>
+</html>

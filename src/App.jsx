@@ -1,6 +1,9 @@
 import { Routes, Route } from '@solidjs/router';
 import { onMount, Suspense } from 'solid-js';
-import HomeSimple from './pages/HomeSimple';
+import HomeImproved from './pages/HomeImproved';
+import EventosImproved from './pages/EventosImproved';
+import RegistroPage from './pages/RegistroPage';
+import CheckinPage from './pages/CheckinPage';
 
 // Componente de carga simple
 function LoadingSpinner() {
@@ -31,14 +34,18 @@ function NotFoundSimple() {
 
 function App() {
   onMount(() => {
-    console.log('🔄 CCB SolidJS Platform iniciada - Versión Simplificada');
+    console.log('🔄 CCB SolidJS Platform iniciada - Versión Expandida');
+    console.log('📱 Páginas disponibles: Home, Eventos, Registro, Check-in');
   });
 
   return (
     <div class="app">
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
-          <Route path="/" component={HomeSimple} />
+          <Route path="/" component={HomeImproved} />
+          <Route path="/eventos" component={EventosImproved} />
+          <Route path="/registro" component={RegistroPage} />
+          <Route path="/checkin" component={CheckinPage} />
           <Route path="*" component={NotFoundSimple} />
         </Routes>
       </Suspense>
