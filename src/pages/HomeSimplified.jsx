@@ -108,116 +108,124 @@ function HomeSimplified() {
               "gap": "2rem" 
             }}>
               {/* Ver Eventos */}
-              <div style={{
-                "background": "linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)",
-                "padding": "2rem",
-                "border-radius": "15px",
-                "text-align": "center",
-                "border": "2px solid #e5e7eb",
-                "cursor": "pointer",
-                "transition": "all 0.3s ease"
-              }}>
+              <A href="/eventos" style={{ "text-decoration": "none" }}>
                 <div style={{
-                  "background": "linear-gradient(135deg, #00BDF2 0%, #0ea5e9 100%)",
-                  "color": "white",
-                  "width": "70px",
-                  "height": "70px",
+                  "background": "linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)",
+                  "padding": "2rem",
                   "border-radius": "15px",
-                  "display": "flex",
-                  "align-items": "center",
-                  "justify-content": "center",
-                  "font-size": "2rem",
-                  "margin": "0 auto 1.5rem",
-                  "box-shadow": "0 4px 15px rgba(0,189,242,0.3)"
+                  "text-align": "center",
+                  "border": "2px solid #e5e7eb",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease"
                 }}>
-                  🎭
+                  <div style={{
+                    "background": "linear-gradient(135deg, #00BDF2 0%, #0ea5e9 100%)",
+                    "color": "white",
+                    "width": "70px",
+                    "height": "70px",
+                    "border-radius": "15px",
+                    "display": "flex",
+                    "align-items": "center",
+                    "justify-content": "center",
+                    "font-size": "2rem",
+                    "margin": "0 auto 1.5rem",
+                    "box-shadow": "0 4px 15px rgba(0,189,242,0.3)"
+                  }}>
+                    🎭
+                  </div>
+                  <h3 style={{ "margin": "0 0 1rem", "color": "#474C55", "font-size": "1.3rem" }}>Ver Eventos</h3>
+                  <p style={{ "margin": "0", "color": "#6b7280", "font-size": "0.9rem" }}>
+                    Explore nuestros eventos actuales y próximos
+                  </p>
                 </div>
-                <h3 style={{ "margin": "0 0 1rem", "color": "#474C55", "font-size": "1.3rem" }}>Ver Eventos</h3>
-                <p style={{ "margin": "0", "color": "#6b7280", "font-size": "0.9rem" }}>
-                  Explore nuestros eventos actuales y próximos
-                </p>
-              </div>
+              </A>
 
               {/* Registrarse */}
-              <div style={{
-                "background": "linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%)",
-                "padding": "2rem",
-                "border-radius": "15px",
-                "text-align": "center",
-                "border": "2px solid #e5e7eb",
-                "cursor": "pointer",
-                "transition": "all 0.3s ease"
-              }}>
+              <div onClick={() => alert('📝 Módulo de Registro - Próximamente disponible!\n\nEste módulo incluirá:\n• Formulario de registro intuitivo\n• Selección de eventos\n• Validación en tiempo real\n• Código QR de confirmación')} style={{ "text-decoration": "none" }}>
                 <div style={{
-                  "background": "linear-gradient(135deg, #F99D2A 0%, #fb923c 100%)",
-                  "color": "white",
-                  "width": "70px",
-                  "height": "70px",
+                  "background": "linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%)",
+                  "padding": "2rem",
                   "border-radius": "15px",
-                  "display": "flex",
-                  "align-items": "center",
-                  "justify-content": "center",
-                  "font-size": "2rem",
-                  "margin": "0 auto 1.5rem",
-                  "box-shadow": "0 4px 15px rgba(249,157,42,0.3)"
+                  "text-align": "center",
+                  "border": "2px solid #e5e7eb",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease"
                 }}>
-                  📝
+                  <div style={{
+                    "background": "linear-gradient(135deg, #F99D2A 0%, #fb923c 100%)",
+                    "color": "white",
+                    "width": "70px",
+                    "height": "70px",
+                    "border-radius": "15px",
+                    "display": "flex",
+                    "align-items": "center",
+                    "justify-content": "center",
+                    "font-size": "2rem",
+                    "margin": "0 auto 1.5rem",
+                    "box-shadow": "0 4px 15px rgba(249,157,42,0.3)"
+                  }}>
+                    📝
+                  </div>
+                  <h3 style={{ "margin": "0 0 1rem", "color": "#474C55", "font-size": "1.3rem" }}>Registrarse</h3>
+                  <p style={{ "margin": "0", "color": "#6b7280", "font-size": "0.9rem" }}>
+                    Regístrese para un evento específico
+                  </p>
                 </div>
-                <h3 style={{ "margin": "0 0 1rem", "color": "#474C55", "font-size": "1.3rem" }}>Registrarse</h3>
-                <p style={{ "margin": "0", "color": "#6b7280", "font-size": "0.9rem" }}>
-                  Regístrese para un evento específico
-                </p>
               </div>
 
               {/* Check-in */}
-              <div style={{
-                "background": "linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)",
-                "padding": "2rem",
-                "border-radius": "15px",
-                "text-align": "center",
-                "border": "2px solid #e5e7eb",
-                "cursor": "pointer",
-                "transition": "all 0.3s ease"
-              }}>
+              <div onClick={() => alert('✅ Módulo de Check-in - Próximamente disponible!\n\nEste módulo incluirá:\n• Verificación por código QR\n• Confirmación de asistencia\n• Estado en tiempo real\n• Estadísticas de evento')} style={{ "text-decoration": "none" }}>
                 <div style={{
-                  "background": "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-                  "color": "white",
-                  "width": "70px",
-                  "height": "70px",
+                  "background": "linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)",
+                  "padding": "2rem",
                   "border-radius": "15px",
-                  "display": "flex",
-                  "align-items": "center",
-                  "justify-content": "center",
-                  "font-size": "2rem",
-                  "margin": "0 auto 1.5rem",
-                  "box-shadow": "0 4px 15px rgba(16,185,129,0.3)"
+                  "text-align": "center",
+                  "border": "2px solid #e5e7eb",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease"
                 }}>
-                  ✅
+                  <div style={{
+                    "background": "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                    "color": "white",
+                    "width": "70px",
+                    "height": "70px",
+                    "border-radius": "15px",
+                    "display": "flex",
+                    "align-items": "center",
+                    "justify-content": "center",
+                    "font-size": "2rem",
+                    "margin": "0 auto 1.5rem",
+                    "box-shadow": "0 4px 15px rgba(16,185,129,0.3)"
+                  }}>
+                    ✅
+                  </div>
+                  <h3 style={{ "margin": "0 0 1rem", "color": "#474C55", "font-size": "1.3rem" }}>Check-in</h3>
+                  <p style={{ "margin": "0", "color": "#6b7280", "font-size": "0.9rem" }}>
+                    Confirme su asistencia a un evento
+                  </p>
                 </div>
-                <h3 style={{ "margin": "0 0 1rem", "color": "#474C55", "font-size": "1.3rem" }}>Check-in</h3>
-                <p style={{ "margin": "0", "color": "#6b7280", "font-size": "0.9rem" }}>
-                  Confirme su asistencia a un evento
-                </p>
               </div>
             </div>
             
             {/* Admin Button */}
             <div style={{ "text-align": "center", "margin-top": "2rem" }}>
-              <div style={{
-                "display": "inline-flex",
-                "align-items": "center",
-                "gap": "0.5rem",
-                "background": "linear-gradient(135deg, #F99D2A 0%, #fb923c 100%)",
-                "color": "white",
-                "padding": "1rem 2rem",
-                "border-radius": "15px",
-                "font-weight": "600",
-                "cursor": "pointer",
-                "box-shadow": "0 4px 15px rgba(249,157,42,0.3)",
-                "transition": "all 0.3s ease"
-              }}>
-                <span style={{ "font-size": "1.2rem" }}>🔐</span>
-                <span>Acceso Administrativo</span>
+              <div onClick={() => alert('🔐 Panel Administrativo - Próximamente disponible!\n\nEste módulo incluirá:\n• Dashboard con estadísticas\n• Gestión de eventos (CRUD)\n• Gestión de visitantes\n• Reportes y exportación\n• Configuración del sistema')} style={{ "text-decoration": "none" }}>
+                <div style={{
+                  "display": "inline-flex",
+                  "align-items": "center",
+                  "gap": "0.5rem",
+                  "background": "linear-gradient(135deg, #F99D2A 0%, #fb923c 100%)",
+                  "color": "white",
+                  "padding": "1rem 2rem",
+                  "border-radius": "15px",
+                  "font-weight": "600",
+                  "cursor": "pointer",
+                  "box-shadow": "0 4px 15px rgba(249,157,42,0.3)",
+                  "transition": "all 0.3s ease"
+                }}>
+                  <span style={{ "font-size": "1.2rem" }}>🔐</span>
+                  <span>Acceso Administrativo</span>
+                </div>
               </div>
             </div>
           </div>
