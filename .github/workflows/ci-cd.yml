@@ -1,0 +1,60 @@
+name: CCB SolidJS CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_VERSION: '18'
+  
+jobs:
+  # ===== TESTS Y VALIDACIÓN =====
+  test:
+    name: Tests y Linting
+    runs-on: ubuntu-latest
+    
+    services:
+      mongodb:
+        image: mongo:7
+        env:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: password123
+        ports:
+          - 27017:27017
+      
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd backend && npm ci
+
+      - name: Run tests
+        env:
+          NODE_ENV: test
+          MONGODB_URI: mongodb://admin:password123@localhost:27017/ccb_test?authSource=admin
+          REDIS_HOST: localhost
+          JWT_SECRET: test_jwt_secret
+        run: |
+          npm run test --if-present
+          cd backend && npm run test:coverage

@@ -1,0 +1,50 @@
+{
+  "name": "ccb-solidjs-platform",
+  "version": "1.0.0",
+  "description": "Plataforma SolidJS para Centro Cultural Banreservas - Fase 5",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build",
+    "serve": "vite preview --port 3000",
+    "test": "vitest",
+    "vercel-build": "npm run build",
+    "phase5:start": "./start-phase5.sh",
+    "phase5:stop": "docker-compose down",
+    "phase5:restart": "docker-compose restart",
+    "phase5:logs": "docker-compose logs -f",
+    "phase5:migrate": "cd backend && npm run migrate",
+    "phase5:test": "cd backend && npm run test:coverage",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.10.5",
+    "axios": "^1.6.2",
+    "socket.io-client": "^4.8.1",
+    "solid-js": "^1.8.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-solid": "^2.8.2",
+    "vitest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "solidjs",
+    "centro-cultural",
+    "banreservas"
+  ],
+  "author": "Centro Cultural Banreservas",
+  "license": "MIT"
+}

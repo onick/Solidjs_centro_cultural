@@ -1,0 +1,59 @@
+import { Routes, Route } from '@solidjs/router';
+import { onMount, Suspense } from 'solid-js';
+import { routes } from './router/routes';
+import { updatePageTitle } from './router/guards';
+import { initializeSync } from './utils/vueSync';
+
+// Componente de carga
+function LoadingSpinner() {
+  return (
+    <div class="loading-container">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Cargando...</p>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  onMount(() => {
+    // Inicializar sincronización con sistema Vue.js
+    initializeSync();
+    console.log('🔄 CCB SolidJS Platform iniciada');
+    console.log('📡 Sincronización con Vue.js habilitada');
+    console.log('🎨 Colores corporativos CCB aplicados');
+  });
+
+  return (
+    <div class="app">
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          {/* Rutas principales */}
+          <Route path="/" component={routes[0].component} />
+          <Route path="/eventos" component={routes[1].component} />
+          <Route path="/eventos/:id" component={routes[2].component} />
+          <Route path="/registro" component={routes[3].component} />
+          <Route path="/checkin" component={routes[4].component} />
+          
+          {/* Rutas de autenticación */}
+          <Route path="/login" component={routes[5].component} />
+          
+          {/* Rutas de administración */}
+          <Route path="/admin" component={routes[6].component} />
+          <Route path="/admin/*" component={routes[6].component} />
+          
+          {/* Ruta 404 */}
+          <Route path="*" component={() => 
+            <div class="not-found">
+              <h1>404 - Página no encontrada</h1>
+              <p>La página que buscas no existe</p>
+            </div>
+          } />
+        </Routes>
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;

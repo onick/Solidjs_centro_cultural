@@ -1,0 +1,38 @@
+# Dockerfile para Frontend SolidJS
+FROM node:18-alpine as builder
+
+# Instalar dependencias de build
+RUN apk add --no-cache curl
+
+# Crear directorio de la app
+WORKDIR /app
+
+# Copiar package.json
+COPY package*.json ./
+
+# Instalar dependencias
+RUN npm ci
+
+# Copiar código fuente
+COPY . .
+
+# Build de producción
+RUN npm run build
+
+# Etapa de producción con Nginx
+FROM nginx:alpine
+
+# Instalar curl para healthchecks
+RUN apk add --no-cache curl
+
+# Copiar archivos built
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copiar configuración personalizada de nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Exponer puerto
+EXPOSE 3000
+
+# Comando de inicio
+CMD ["nginx", "-g", "daemon off;"]

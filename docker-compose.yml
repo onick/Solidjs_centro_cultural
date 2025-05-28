@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  # MongoDB - Base de datos principal
+  mongodb:
+    image: mongo:7
+    container_name: ccb_mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-password123}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-ccb_solidjs}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - ccb_network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis - Cache y Pub/Sub
+  redis:
+    image: redis:7-alpine
+    container_name: ccb_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis123}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ccb_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backend Node.js
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: ccb_backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: 3080
+      MONGODB_URI: mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD:-password123}@mongodb:27017/${MONGO_DATABASE:-ccb_solidjs}?authSource=admin
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis123}
+      JWT_SECRET: ${JWT_SECRET:-ccb_jwt_secret_key_2025}
+      VUE_SYSTEM_URL: http://vue_system:8080
+    ports:
+      - "3080:3080"
+    depends_on:
+      mongodb: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    volumes:
+      - ./backend:/app/backend
+      - backend_logs:/app/logs
+    networks:
+      - ccb_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend SolidJS
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: ccb_frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      VITE_API_URL: http://localhost:3080
+      VITE_VUE_SYSTEM_URL: http://localhost:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend: { condition: service_healthy }
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    networks:
+      - ccb_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# Volúmenes persistentes
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_logs:
+    driver: local
+
+# Red interna
+networks:
+  ccb_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
