@@ -1,0 +1,42 @@
+# Archivos de entorno
+.env
+.env.local
+
+# Caché y archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Archivos de logs
+*.log
+
+# Directorios de entorno virtual
+venv/
+ENV/
+env/
+.venv/
+.virtualenv/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Archivos temporales
+.DS_Store

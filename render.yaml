@@ -33,6 +33,20 @@ services:
           property: connectionString
       - key: JWT_SECRET
         generateValue: true
+        
+  # Nuevo Backend Flask
+  - type: web
+    name: ccb-flask
+    env: python
+    buildCommand: cd flask_backend && pip install -r requirements.txt
+    startCommand: cd flask_backend && gunicorn app:app
+    envVars:
+      - key: MONGO_URI
+        fromDatabase:
+          name: ccb-mongodb
+          property: connectionString
+      - key: PORT
+        value: 5000
 
 databases:
   - name: ccb-mongodb
@@ -40,4 +54,4 @@ databases:
     user: ccb_user
 
   - name: ccb-redis
-    plan: starter 
+    plan: starter
